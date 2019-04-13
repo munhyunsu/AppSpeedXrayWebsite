@@ -1,8 +1,9 @@
 .nav-top {
-
   background-color: #78a566;
   width: 100%;
+  text-align: left;
 }
+
 .nav-top a {
   font-size: 150%;
   font-weight: bold;
@@ -12,6 +13,51 @@
   text-decoration: none;
   display: inline-block;
 }
+
 .nav-top a:hover {
   background-color: #4f6d41;
+}
+
+.entry-list {
+  background-color: #fefefe;
+  padding: 16px;
+  margin: 5px auto; /* 15% from the top and centered */
+  border: 1px solid #888;
+  width: auto; /* Could be more or less, depending on screen size */
+  overflow: auto;
+}
+
+.entry-search {
+  background-image: url('../img/magnifier.png'); /* Add a search icon to input */
+  background-position: 10px 12px; /* Position the search icon */
+  background-repeat: no-repeat; /* Do not repeat the icon image */
+  padding: 12px 20px 12px 40px; /* Add some padding */
+  width: 100%; /* Full-width */
+  font-size: 18px; /* Increase font-size */
+  border: 1px solid #ddd; /* Add a grey border */
+  margin-bottom: 12px; /* Add some space below the input */
+  display: inline-block;
+  box-sizing: border-box;
+}
+
+.entry-ul {
+  /* Remove default list styling */
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.entry-ul li a {
+  border: 1px solid #ddd; /* Add a border to all links */
+  margin-top: -1px; /* Prevent double borders */
+  background-color: #f6f6f6; /* Grey background color */
+  padding: 12px; /* Add some padding */
+  text-decoration: none; /* Remove default text underline */
+  font-size: 18px; /* Increase the font-size */
+  color: black; /* Add a black text color */
+  display: block; /* Make it into a block element to fill the whole list */
+}
+
+.entry-ul li a:hover:not(.header) {
+  background-color: #eee; /* Add a hover effect to all links, except for headers */
 }

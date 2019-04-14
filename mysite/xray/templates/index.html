@@ -2,7 +2,8 @@
 <html lang="en">
 <head>
   {% load static %}
-  <link rel="stylesheet" type="text/css" href="{% static "css/index.css" %}">
+  <link rel="stylesheet" type="text/css" href="{% static "css/nav.css" %}">
+    <link rel="stylesheet" type="text/css" href="{% static "css/index.css" %}">
   <meta charset="UTF-8">
   <title>AppSpeedXray: Application Performance Archive</title>
 </head>
@@ -17,20 +18,19 @@ The Header field: Navigation
 </div>
 
 <!--
-The Performance Metric field: Table
+The Explain field:
+1. Where is here?
+2. The number of archived measurements currently
+3. Menus
 -->
-<div class="entry-list">
-  <label for="entry-search"></label>
-  <input type="text" id="entry-search" class="entry-search" onkeyup="myFunction()" placeholder="Search for application..">
-  <ul class="entry-ul ">
-    <li><a href="#wow">App1</a></li>
-    <li><a href="#wow">App2</a></li>
-    <li><a href="#wow">App3</a></li>
-    <li><a href="#wow">App4</a></li>
-    {% for app in apps %}
-    <li><a href="result?package={{ app.package_name }}">{{ app.app_title }}</a></li>
-    {% endfor %}
+<div class="post">
+  <h3>Application Performance Archive</h3>
+  <ul>
+    <li>This is the archive page of <u>AppSpeedXray</u>, mobile application performance measurement, results.</li>
+    <li>Currently, <i>620</i> experimental results are archived.</li>
+    <li>Select <b>🖴 Archive</b> menu to view the archive results, or <b>🆕 Request new measurement</b> menu to request new measurements.</li>
   </ul>
 </div>
+
 </body>
 </html>

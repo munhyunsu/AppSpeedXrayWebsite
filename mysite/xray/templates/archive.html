@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  {% load static %}
+  <link rel="stylesheet" type="text/css" href="{% static "css/nav.css" %}">
+  <link rel="stylesheet" type="text/css" href="{% static "css/archive.css" %}">
+  <meta charset="UTF-8">
+  <title>AppSpeedXray: Application Performance Archive</title>
+</head>
+<body>
+<!--
+The Header field: Navigation
+-->
+<div class="nav-top">
+<a class="nav-top-item" href="https://appspeedxray.cs-cnu.org/">⇦ Go to main</a>
+<a class="nav-top-item" href="/">🖴 Archive</a>
+<a class="nav-top-item" href="#">🆕 Request new measurements</a>
+</div>
+
+<!--
+The Performance Metric field: Table
+-->
+<div class="entry-list">
+  <label for="entry-search"></label>
+  <input type="text" id="entry-search" class="entry-search" onkeyup="myFunction()" placeholder="Search for application..">
+  <ul class="entry-ul ">
+    <li><a href="#wow">App1</a></li>
+    <li><a href="#wow">App2</a></li>
+    <li><a href="#wow">App3</a></li>
+    <li><a href="#wow">App4</a></li>
+    {% for app in apps %}
+    <li><a href="result?package={{ app.package_name }}">{{ app.app_title }}</a></li>
+    {% endfor %}
+  </ul>
+</div>
+</body>
+</html>

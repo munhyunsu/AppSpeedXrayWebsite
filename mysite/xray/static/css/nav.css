@@ -1,0 +1,19 @@
+.nav-top {
+  background-color: #78a566;
+  width: 100%;
+  text-align: left;
+}
+
+.nav-top a {
+  font-size: 150%;
+  font-weight: bold;
+  color: #ffffff;
+  padding: 16px 25px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.nav-top a:hover {
+  background-color: #4f6d41;
+}

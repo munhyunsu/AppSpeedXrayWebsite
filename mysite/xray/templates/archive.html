@@ -24,12 +24,12 @@ The Performance Metric field: Table
   <label for="entry-search"></label>
   <input type="text" id="entry-search" class="entry-search" onkeyup="myFunction()" placeholder="Search for application..">
   <ul class="entry-ul ">
-    <li><a href="#wow">App1</a></li>
-    <li><a href="#wow">App2</a></li>
-    <li><a href="#wow">App3</a></li>
-    <li><a href="#wow">App4</a></li>
+{#    <li><a href="#wow">App1</a></li>#}
+{#    <li><a href="#wow">App2</a></li>#}
+{#    <li><a href="#wow">App3</a></li>#}
+{#    <li><a href="#wow">App4</a></li>#}
     {% for app in apps %}
-    <li><a href="result?package={{ app.package_name }}">{{ app.app_title }}</a></li>
+    <li><a href="result?package={{ app.package_name }}">{{ app.package_name }}</a></li>
     {% endfor %}
   </ul>
 </div>

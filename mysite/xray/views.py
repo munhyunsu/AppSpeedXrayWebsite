@@ -19,4 +19,12 @@ def index(request):
 
 def archive(request):
     if request.method == 'GET':
-        return render(request, 'archive.html')
+        apps = Xray.objects.filter(scene_start=0).order_by('package_name')
+        return render(request, 'archive.html', {'apps': apps})
+
+
+def result(request):
+    if request.method == 'GET':
+        package = request.GET.get('package')
+        apps = Xray.objects.filter(package_name=package, scene_start=0).order_by('-experiment_date')
+        return render(request, 'result.html', {'apps': apps})

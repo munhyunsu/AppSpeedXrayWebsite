@@ -3,6 +3,7 @@
 <head>
   {% load static %}
   <link rel="stylesheet" type="text/css" href="{% static "css/nav.css" %}">
+  <link rel="stylesheet" type="text/css" href="{% static "css/result.css" %}">
   <meta charset="UTF-8">
   <title>AppSpeedXray: Application Performance Archive</title>
 </head>
@@ -11,16 +12,44 @@
 The Header field: Navigation
 -->
 <div class="nav-top">
-<a class="nav-top-item" href="https://appspeedxray.cs-cnu.org/">⇦ Go to main</a>
-<a class="nav-top-item" href="/archive">🖴 Archive</a>
-<a class="nav-top-item" href="#">🆕 Request new measurements</a>
+  <a class="nav-top-item" href="https://appspeedxray.cs-cnu.org/">⇦ Go to main</a>
+  <a class="nav-top-item" href="/archive">🖴 Archive</a>
+  <a class="nav-top-item" href="#">🆕 Request new measurements</a>
 </div>
 
 <!--
 The Performance Detail field:
 -->
 <div class="metric">
-
+  <h1> Performance measurement result: {{ apps.0.package_name }}</h1>
+  {% for app in apps %}
+    <h3 style="margin-top: 20px"> Experiments date: {{ app.experiment_date }} </h3>
+    <table align="center">
+      <tr>
+        <th>Performance Score</th>
+      </tr>
+      <tr>
+        <td><b>{{ app.ps|floatformat }}</b></td>
+      </tr>
+    </table>
+    <table align="center">
+      <tr>
+        <th>Speed index (SI)</th>
+        <th>First paint time (FP)</th>
+        <th>Layout load time (LL)</th>
+        <th>CPU stable time (CS)</th>
+        <th>Rendering after data download (RT)</th>
+      </tr>
+      <tr>
+        <td><b>{{ app.per_si|floatformat }} ({{ app.raw_si|floatformat }})</b></td>
+        <td><b>{{ app.per_fp|floatformat }} ({{ app.raw_fp|floatformat }})</b></td>
+        <td><b>{{ app.per_cs|floatformat }} ({{ app.raw_cs|floatformat }})</b></td>
+        <td><b>{{ app.per_ll|floatformat }} ({{ app.raw_ll|floatformat }})</b></td>
+        <td><b>{{ app.per_rt|floatformat }} ({{ app.raw_rt|floatformat }})</b></td>
+      </tr>
+    </table>
+    <hr>
+  {% endfor %}
 </div>
 
 

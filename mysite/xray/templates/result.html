@@ -23,7 +23,7 @@ The Performance Detail field:
 <div class="metric">
   <h1> Performance measurement result: {{ apps.0.package_name }}</h1>
   {% for app in apps %}
-    <h3 style="margin-top: 20px"> Experiments date: {{ app.experiment_date }} </h3>
+    <h3 style="margin-top: 20px"> Experiments date: {{ app.experiment_date }} (Scene: {{ app.scene_start }} ~ {{ app.scene_end }})</h3>
     <table align="center">
       <tr>
         <th>Performance Score</th>

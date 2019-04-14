@@ -26,5 +26,5 @@ def archive(request):
 def result(request):
     if request.method == 'GET':
         package = request.GET.get('package')
-        apps = Xray.objects.filter(package_name=package, scene_start=0).order_by('-experiment_date')
+        apps = Xray.objects.filter(package_name=package).order_by('-experiment_date', 'scene_start')
         return render(request, 'result.html', {'apps': apps})

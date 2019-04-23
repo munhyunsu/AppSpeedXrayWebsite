@@ -11,4 +11,7 @@ python3 manage.py createsuperuser --email admin@example.com --username admin
 python3 manage.py makemigrations
 python3 manage.py migrate
 ```
+3. Import experiment data
+```bash
+```
 

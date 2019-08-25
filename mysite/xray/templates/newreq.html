@@ -1,7 +1,43 @@
-<html>
-  <head>
-    <title>AppSpeedXray - New measurement</title>
-  </head>
-  <body>
-  </body>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  {% load static %}
+  <link rel="stylesheet" type="text/css" href="{% static "css/nav.css" %}">
+    <link rel="stylesheet" type="text/css" href="{% static "css/newreq.css" %}">
+  <meta charset="UTF-8">
+  <title>AppSpeedXray: Application Performance Archive</title>
+</head>
+<body>
+<!--
+The Header field: Navigation
+-->
+<div class="nav-top">
+<a class="nav-top-item" href="https://appspeedxray.cs-cnu.org/">⇦ Go to main</a>
+<a class="nav-top-item" href="/archive">🖴 Archive</a>
+<a class="nav-top-item" href="/newreq">🆕 Request new measurements</a>
+</div>
+
+<!--
+The Request option field
+-->
+<div class="info">
+  <form action="/submitreq" method="post">
+  {% csrf_token %}
+  <fieldset>
+    <legend>Measurements information:</legend>
+    <h3> Application: </h3>
+    <select name="app">
+      <option value="com.facebook.katana">Facebook</option>
+      <option value="com.twitter.android">Twitter</option>
+    </select><br>
+    <h3> Device: </h3>
+    <select name="dev">
+      <option value="SM-A510S">Galaxy A5 2016</option>
+    </select><br>
+    <input type="submit">
+  </fieldset>
+  </form>
+</div>
+
+</body>
 </html>

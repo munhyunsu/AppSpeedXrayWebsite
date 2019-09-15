@@ -22,30 +22,41 @@ The Performance Detail field:
 -->
 <div class="metric">
   <h1> Mobile Performance measurement result: {{ apps.0.package_name }}</h1>
+  <div align=center>
+    <img src="{% get_media_prefix '/media/img/scatter.png' %}" height=360px style="display: inline">
+    <img src="{% get_media_prefix '/media/img/radar.png' %}" height=360px style="display: inline">
+  </div>
   {% for app in apps %}
     <h3 style="margin-top: 20px"> Experiments date: {{ app.experiment_date }} (Scene: {{ app.scene_start }} ~ {{ app.scene_end }})</h3>
     <table align="center">
       <tr>
-        <th>Performance Score</th>
+        <th>
+          <div class="tooltip">Speed index<span class="tooltiptext">The average time at which visible parts of the page are displayed.</span>
+          </div>
+        </th>
+
+        <th>
+          <div class="tooltip">First paint time<span class="tooltiptext">The time at first paint image with the bitmap difference compared with the previous one.</span>
+          </div>
+        </th>
+        <th>
+          <div class="tooltip">Layout load time<span class="tooltiptext">The time at mobile app has completed the layout load by observing the layout count</span>
+          </div>
+        </th>
+        <th>
+          <div class="tooltip">CPU stable time<span class="tooltiptext">The CPU stable time after the user input</div>
+          </span></th>
+        <th>
+          <div class="tooltip">Rendering after data download<span class="tooltiptext">The rendering time after the traffic download is completed</span>
+          </div>
+        </th>
       </tr>
       <tr>
-        <td><b>{{ app.ps|floatformat }}</b></td>
-      </tr>
-    </table>
-    <table align="center">
-      <tr>
-        <th>Speed index (SI)</th>
-        <th>First paint time (FP)</th>
-        <th>Layout load time (LL)</th>
-        <th>CPU stable time (CS)</th>
-        <th>Rendering after data download (RT)</th>
-      </tr>
-      <tr>
-        <td><b>{{ app.per_si|floatformat }} ({{ app.raw_si|floatformat }})</b></td>
-        <td><b>{{ app.per_fp|floatformat }} ({{ app.raw_fp|floatformat }})</b></td>
-        <td><b>{{ app.per_cs|floatformat }} ({{ app.raw_cs|floatformat }})</b></td>
-        <td><b>{{ app.per_ll|floatformat }} ({{ app.raw_ll|floatformat }})</b></td>
-        <td><b>{{ app.per_rt|floatformat }} ({{ app.raw_rt|floatformat }})</b></td>
+        <td><b>{{ app.raw_si|floatformat }}</b></td>
+        <td><b>{{ app.raw_fp|floatformat }}</b></td>
+        <td><b>{{ app.raw_cs|floatformat }}</b></td>
+        <td><b>{{ app.raw_ll|floatformat }}</b></td>
+        <td><b>{{ app.raw_rt|floatformat }}</b></td>
       </tr>
     </table>
     <hr>

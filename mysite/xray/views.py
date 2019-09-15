@@ -2,9 +2,10 @@ from django.http import HttpResponse
 from django.shortcuts import render
 from django.shortcuts import redirect
 from rest_framework import viewsets
+from django.core.files import File
+
 from xray.models import Xray
 from xray.serializers import XraySerializer
-
 from xray.xray_handler import send_request
 
 
@@ -45,3 +46,7 @@ def submitreq(request):
     elif request.method == 'POST':
         send_request(request.POST)
         return redirect('/result?package=' + request.POST['app'])
+
+
+def load_img(request):
+    pass

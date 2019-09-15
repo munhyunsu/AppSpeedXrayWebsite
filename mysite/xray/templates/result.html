@@ -23,8 +23,8 @@ The Performance Detail field:
 <div class="metric">
   <h1> Mobile Performance measurement result: {{ apps.0.package_name }}</h1>
   <div align=center>
-    <img src="{% get_media_prefix '/media/img/scatter.png' %}" height=360px style="display: inline">
-    <img src="{% get_media_prefix '/media/img/radar.png' %}" height=360px style="display: inline">
+    <img src="{{ MEDIA_URL }}img/scatter.png" height=360px style="display: inline">
+    <img src="{{ MEDIA_URL }}img/radar.png" height=360px style="display: inline">
   </div>
   {% for app in apps %}
     <h3 style="margin-top: 20px"> Experiments date: {{ app.experiment_date }} (Scene: {{ app.scene_start }} ~ {{ app.scene_end }})</h3>

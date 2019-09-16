@@ -1,7 +1,73 @@
+.nav-menu {
+  background-color: #37a54d;
+  width: 100%;
+  text-align: left;
+}
+
+.nav-menu a {
+  font-size: 125%;
+  font-weight: bold;
+  color: #ffffff;
+  padding: 8px 12px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.nav-menu a:hover {
+  background-color: #2b803c;
+}
+
+.jumper {
+  background-color: #8c8c8c;
+  width: auto;
+  text-align: left;
+}
+
+.jumper a{
+  font-size: 100%;
+  font-weight: bold;
+  color: #000000;
+  padding: 4px 6px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.info {
+  width: 100%;
+  display: inline-block;
+}
+
+.info-left {
+  width: 65%;
+  float: left;
+}
+
+.info-left h2 {
+  color: #1e347b;
+}
+
+.info-right {
+  width: 35%;
+  float: right;
+}
+
+.info-right table {
+  text-align: center;
+  margin: auto;
+}
+
+.metric {
+  text-align: center;
+  clear: both;
+}
+
 table {
   font-family: sans-serif, arial;
   border-collapse: collapse;
   width: 80%;
+  margin: auto;
 }
 
 td, th {

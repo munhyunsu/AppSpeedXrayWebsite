@@ -18,16 +18,101 @@ The Header field: Navigation
 </div>
 
 <!--
-The Performance Detail field:
+Measurement information field
 -->
+<div id="id-info" class="info">
+<div class="info-left">
+<h1>Mobile Application Speed Measurement for</h1>
+<h2>{{ apps.0.package_name }}</h2>
+  <p><b>From:</b> Daejeon - <b>Samsung Galaxy A5 2016</b> (SM-A510S) - <b>Wifi</b> (5G)</p>
+<p><b>Date:</b> {{ apps.0.experiment_date }}</p>
+
+</div>
+<div class="info-right">
+<h1></h1>
+<table>
+  <tr>
+    <th>Initial Speed Index</th>
+    <th>Runtime Speed Index</th>
+  </tr>
+  <tr>
+    <td>{{ apps.0.per_si | floatformat }}</td>
+    <td>{{ apps.1.per_si | floatformat }}</td>
+  </tr>
+</table>
+</div>
+</div>
+
+
+<!--
+The menu field:
+-->
+<div class="nav-menu" id="nav-menu">
+<a class="nav-menu-item" href="#summary">Summary</a>
+<a class="nav-menu-item" href="#details">Details</a>
+<a class="nav-menu-item" href="#">Performance Review</a>
+<a class="nav-menu-item" href="#">Content Breakdown</a>
+<a class="nav-menu-item" href="#">Domains</a>
+<a class="nav-menu-item" href="#">Screenshot</a>
+</div>
+
+<!--
+Summary field
+-->
+<div id="summary" class="jumper">
+<a href="#summary">Summary</a>
+<a href="#nav-menu" style="float: right">Return to Top</a>
+</div>
+
 <div class="metric">
-  <h1> Mobile Performance measurement result: {{ apps.0.package_name }}</h1>
+  <div class="info-left">
+    <p style="text-align: start">Tester: D-A-1-192.168.86.40<br>
+    <b>Simple test</b><br>
+    Events: 4</p>
+  </div>
+  <div class="info-right">
+    <p style="text-align: end">
+    <a href="#">Download test results</a>
+    </p>
+  </div>
+</div>
+
+<div class="metric">
+  <h2>Performance Results (Weighted average - Initial 7: Runtime 3)</h2>
+  <table>
+    <tr>
+      <th>Load Time</th>
+      <th>Speed Index</th>
+      <th>First Paint</th>
+      <th>Layout Load Time</th>
+    </tr>
+    <tr>
+      <td>{{ apps.0.scene_end | floatformat }}</td>
+      <td>{{ apps.0.raw_si | floatformat }}</td>
+      <td>{{ apps.0.raw_fp | floatformat }}</td>
+      <td>{{ apps.0.raw_ll | floatformat }}</td>
+    </tr>
+  </table>
+  <h3>Scene screenshot</h3>
+  <img src="{{ MEDIA_URL }}img/scene/{{ apps.0.package_name }}.png" width="80%">
+</div>
+
+<!--
+Details field
+-->
+<div id="details" class="jumper">
+<a href="#details">Details</a>
+<a href="#nav-menu" style="float: right">Return to Top</a>
+</div>
+
+<div class="metric">
+  <h2> Mobile Performance Measurement Detail: {{ apps.0.package_name }}</h2>
   <div align=center>
     <img src="{{ MEDIA_URL }}img/scatter.png" height=360px style="display: inline">
     <img src="{{ MEDIA_URL }}img/radar.png" height=360px style="display: inline">
   </div>
   {% for app in apps %}
-    <h3 style="margin-top: 20px"> Experiments date: {{ app.experiment_date }} (Scene: {{ app.scene_start }} ~ {{ app.scene_end }})</h3>
+    <h3 style="margin-top: 20px"> Experiments scene: {{ app.scene_start | floatformat:0 }} ~ {{ app.scene_end | floatformat:0 }}</h3>
     <table align="center">
       <tr>
         <th>
@@ -44,8 +129,8 @@ The Performance Detail field:
           </div>
         </th>
         <th>
-          <div class="tooltip">CPU stable time<span class="tooltiptext">The CPU stable time after the user input</div>
-          </span></th>
+          <div class="tooltip">CPU stable time<span class="tooltiptext">The CPU stable time after the user input</span></div>
+          </th>
         <th>
           <div class="tooltip">Rendering after data download<span class="tooltiptext">The rendering time after the traffic download is completed</span>
           </div>
@@ -59,10 +144,15 @@ The Performance Detail field:
         <td><b>{{ app.raw_rt|floatformat }}</b></td>
       </tr>
     </table>
+    <img src="{{ MEDIA_URL }}img/scene/{{ apps.0.package_name }}-{{ forloop.counter }}.png" width="80%">
     <hr>
   {% endfor %}
 </div>
 
+{#<div class="jumper">#}
+{#<a href="#">ID</a>#}
+{#<a href="#nav-menu" style="float: right">Return to Top</a>#}
+{#</div>#}
 
 </body>
 </html>

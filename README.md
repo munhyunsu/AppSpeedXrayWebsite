@@ -1,5 +1,8 @@
 # AppSpeedXrayWebsite
 
+## TODO
+- Update details part 
+
 ## Usage
 1. Create super user
 ```bash
@@ -14,4 +17,6 @@ python3 manage.py migrate
 3. Import experiment data
 ```bash
 ```
+
+
 

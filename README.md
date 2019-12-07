@@ -1,7 +1,10 @@
 # AppSpeedXrayWebsite
 
 ## TODO
-- Update details part 
+
+### On developments
+  - RESTful API
+
 
 ## Usage
 1. Create super user
@@ -17,6 +20,4 @@ python3 manage.py migrate
 3. Import experiment data
 ```bash
 ```
-
-
 
